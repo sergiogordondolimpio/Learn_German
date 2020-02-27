@@ -18,12 +18,15 @@ public class Menu {
 
     public void showMenu(){
 
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new MainFrame();
 
-        JFrame frame = new JFrame("Lernen Deutsch");
-        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        frame.setSize(500,500);
-        frame.setVisible(true);
-        frame.add(tabbedPanel());
+            }
+        });
+
+
 
 
     }
@@ -124,7 +127,7 @@ public class Menu {
 
         //take the image, resize and put in the label
         JLabel imageLabel = new JLabel();
-        BufferedImage img = null;
+       /* BufferedImage img = null;
         try {
             img = ImageIO.read(new File("C:/Users/Usuario/IdeaProjects/Learn German/images/engel.jpg"));
         } catch (IOException e) {
@@ -135,7 +138,7 @@ public class Menu {
 
         ImageIcon imageIcon = new ImageIcon(dimg);
         imageIcon.getImage();
-        imageLabel.setIcon(imageIcon);
+        imageLabel.setIcon(imageIcon);*/
         //put the label in the bottom panel
         bottomPanel.setLayout(new FlowLayout());
         bottomPanel.add(imageLabel);
