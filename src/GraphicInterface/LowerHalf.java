@@ -1,6 +1,7 @@
 package GraphicInterface;
 
 import DataBase.GenerateWords;
+import DataBase.ManageFile;
 import DataBase.WordsData;
 
 import javax.swing.*;
@@ -9,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class LowerHalf extends JPanel implements ActionListener{
@@ -18,6 +20,7 @@ public class LowerHalf extends JPanel implements ActionListener{
     private JButton buttonPrev = new JButton();
     private JButton buttonFinish = new JButton();
     WordsData wordsDataShow = (new WordsData(null, null));
+    ManageFile manageFile = new ManageFile();
 
     private StringListener stringListener;
     //we don't need upperhalf anymore because we use the StringListener interface
@@ -57,9 +60,9 @@ public class LowerHalf extends JPanel implements ActionListener{
        Dimension dimension = getPreferredSize();
        dimension.height = 50;
        setPreferredSize(dimension);
-       Border outerborder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
-       Border innerborder = BorderFactory.createTitledBorder("");
-       setBorder(BorderFactory.createCompoundBorder(innerborder, outerborder));
+       Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+       Border innerBorder = BorderFactory.createTitledBorder("");
+       setBorder(BorderFactory.createCompoundBorder(innerBorder, outerBorder));
        add(buttonStart);
        add(buttonPrev);
        add(buttonNext);
@@ -125,16 +128,20 @@ public class LowerHalf extends JPanel implements ActionListener{
             buttonPrev.setVisible(false);
             buttonNext.setVisible(false);
             generateResult();
-            showResult();
+            JOptionPane.showMessageDialog(LowerHalf.this, new TextArea(showResult()), "Das Resultat", 1);
+
 
         }
     }
 
     /**
-     * Get the list, the list is already shuffle in the class GenerateWords
+     * Get the list, but for the file user.csv in the desktop,
+     * then the function make a shuffle
      */
     private void wordsDataListResultShuffle() {
-        wordsDataList = generateWords.getWordsDataList();
+        //wordsDataList = generateWords.getWordsDataList();
+        wordsDataList = manageFile.readCsv();
+        Collections.shuffle(wordsDataList);
         for (int x = 0; x < wordsDataList.size(); x++){
             wordsDataListResult.add(x, new WordsData(wordsDataList.get(x).getWord(), "Der"));
         }
@@ -153,7 +160,8 @@ public class LowerHalf extends JPanel implements ActionListener{
     /**
      * show the result in a label when click the button finish
      */
-    private void showResult() {
+    private String showResult() {
+        String result = "";
         int countGood = 0;
         int countBad = 0;
         int l;
@@ -168,25 +176,35 @@ public class LowerHalf extends JPanel implements ActionListener{
                 System.out.println(l);
             }
             for (int k = l; k <= j; k++){
-                if (wordsDataListResult.get(k).getArticles() ==
-                        wordsDataList.get(k).getArticles()){
-                    System.out.println(wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord());
+                if (wordsDataList.get(k).getArticles().equals(wordsDataListResult.get(k).getArticles())){
+                    System.out.println("Es igual: " + wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord());
+                    result += wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord() + "\n";
                     countGood++;
                 }else{
-                    System.out.println(wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord()
-                            + "\t||\t" +
-                            wordsDataList.get(k).getArticles() + " " + wordsDataList.get(k).getWord());
+                    System.out.println("Es distinto: " + wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord()
+                            + "\n" + wordsDataList.get(k).getArticles() + " " + wordsDataList.get(k).getWord());
+
+                    result += wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord();
+                    if(wordsDataListResult.get(k).getWord().length() < 9)
+                        result += "\t\t\t||\t" ;
+                    else if(wordsDataListResult.get(k).getWord().length() < 14)
+                        result += "\t\t||\t" ;
+                    else
+                        result += "\t||\t" ;
+                    result += wordsDataList.get(k).getArticles() + " " + wordsDataList.get(k).getWord()
+                            + "\n";
                     countBad++;
                 }
             }
-            System.out.println();
-            System.out.println("Recht : " + countGood + "     Unrecth: " + countBad);
+
+            result += "\nRecht : " + countGood + "     Unrecth: " + countBad;
             //return i in the next 10 word
             while (i % 10 != 0) {
                 System.out.println(i);
                 i++;
             }
         }
+        return result;
     }
 
     /**

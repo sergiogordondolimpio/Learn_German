@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Learn German:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4c64989e-b917-4ea8-92a5-64aaa0412d27" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/LowerHalf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/MainFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/MainPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/PanelArticles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/StringListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/UpperHalf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataBase/ManageFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Learn German/DataBase/GenerateWords.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/DataBase/GenerateWords.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/Menu$ChangeText.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/Menu$ChangeText.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/LowerHalf.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/LowerHalf.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataBase/GenerateWords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/GenerateWords.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphicInterface/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicInterface/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphicInterface/LowerHalf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicInterface/LowerHalf.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -41,6 +40,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager">
@@ -91,25 +93,37 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="494" y="126" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1582725012460" />
-    <state width="1029" height="166" key="GridCell.Tab.0.bottom" timestamp="1582822284634">
+    <state width="610" height="178" key="GridCell.Tab.0.bottom" timestamp="1582931581379">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="610" height="178" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1582931581379" />
+    <state width="1022" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1582928011924" />
+    <state width="610" height="178" key="GridCell.Tab.0.center" timestamp="1582931581379">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="610" height="178" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1582931581379" />
+    <state width="1022" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1582928011924" />
+    <state width="610" height="178" key="GridCell.Tab.0.left" timestamp="1582931581379">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="610" height="178" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1582931581379" />
+    <state width="1022" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1582928011924" />
+    <state width="610" height="178" key="GridCell.Tab.0.right" timestamp="1582931581379">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="610" height="178" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1582931581379" />
+    <state width="1022" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1582928011924" />
+    <state x="326" y="80" width="1040" height="606" key="SettingsEditor" timestamp="1582928722272">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1029" height="166" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1582822284634" />
-    <state width="1029" height="166" key="GridCell.Tab.0.center" timestamp="1582822284634">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1029" height="166" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1582822284634" />
-    <state width="1029" height="166" key="GridCell.Tab.0.left" timestamp="1582822284634">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1029" height="166" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1582822284634" />
-    <state width="1029" height="166" key="GridCell.Tab.0.right" timestamp="1582822284634">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1029" height="166" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1582822284634" />
+    <state x="326" y="80" width="1040" height="606" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1582928722272" />
     <state x="410" y="195" key="com.intellij.ide.util.TipDialog" timestamp="1582837616060">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="410" y="195" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1582837616060" />
+    <state x="393" y="270" key="run.anything.popup" timestamp="1582903785836">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="393" y="270" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1582903785836" />
   </component>
 </project>

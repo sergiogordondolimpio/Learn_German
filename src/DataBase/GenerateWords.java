@@ -10,6 +10,8 @@ import java.util.List;
  */
 public class GenerateWords {
     public List<WordsData> wordsDataList = new ArrayList<WordsData>();
+    ManageFile manageFile = new ManageFile();
+    private String filePath = "C:\\Users\\Usuario\\Desktop\\users.csv";
 
     public List<WordsData> getWordsDataList() {
         wordsDataList.add(new WordsData("Engel", "Der"));
@@ -70,6 +72,7 @@ public class GenerateWords {
 
         //here make a schuffle of the list
         Collections.shuffle(wordsDataList);
+        //manageFile.writeCsv(filePath,wordsDataList);
         return wordsDataList;
     }
 
@@ -81,4 +84,5 @@ public class GenerateWords {
 
         this.wordsDataList = wordsDataList;
     }
+
 }
