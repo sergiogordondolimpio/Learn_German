@@ -22,6 +22,8 @@ public class LowerHalf extends JPanel implements ActionListener{
     WordsData wordsDataShow = (new WordsData(null, null));
     ManageFile manageFile = new ManageFile();
 
+    private FormListener formListener;
+
     private StringListener stringListener;
     //we don't need upperhalf anymore because we use the StringListener interface
     //to send the text
@@ -96,7 +98,11 @@ public class LowerHalf extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         JButton clicked = (JButton) e.getSource();
         if (clicked == buttonNext){
-            generateResult();
+            //generateResult();
+            FormEvent formEvent = new FormEvent(this);
+            if(formListener != null) {
+                formListener.formEventOcurred(formEvent);
+            }
             i++;
             //when we have ten words, you must to finish and see the result
             if ((i + 1) % 10 == 0 && i != 0 ) { buttonNext.setVisible(false); }
@@ -105,7 +111,7 @@ public class LowerHalf extends JPanel implements ActionListener{
             stringListener.textEmitted(showText());
             //System.out.println(upperHalf.getWord());
         }else if (clicked == buttonPrev){
-            generateResult();
+
             i--;
             if ((i + 2) % 10 == 0){buttonNext.setVisible(true);}
             if(i % 10 == 0){buttonPrev.setVisible(false);}
@@ -127,7 +133,7 @@ public class LowerHalf extends JPanel implements ActionListener{
             buttonStart.setVisible(true);
             buttonPrev.setVisible(false);
             buttonNext.setVisible(false);
-            generateResult();
+            //generateResult();
             JOptionPane.showMessageDialog(LowerHalf.this, new TextArea(showResult()), "Das Resultat", 1);
 
 
@@ -152,8 +158,15 @@ public class LowerHalf extends JPanel implements ActionListener{
      * we can use this list to compare the original list and see the difference
      * if we have
      */
-    private void generateResult() {
+   /* private void generateResult() {
         wordsDataListResult.set(i, new WordsData(upperHalf.getWord(),upperHalf.getArticle()));
+        System.out.println("generateResult " + i + wordsDataListResult.get(i).getArticles() + wordsDataListResult.get(i).getWord());
+    }
+
+    */
+
+    public void generateResult(String word, String article) {
+        wordsDataListResult.set(i, new WordsData(word, article));
         System.out.println("generateResult " + i + wordsDataListResult.get(i).getArticles() + wordsDataListResult.get(i).getWord());
     }
 
@@ -231,4 +244,6 @@ public class LowerHalf extends JPanel implements ActionListener{
     public void setUpperHalf(UpperHalf upperHalf){
               this.upperHalf = upperHalf;
          }
+
+
 }

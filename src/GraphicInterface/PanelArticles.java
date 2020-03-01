@@ -30,6 +30,15 @@ public class PanelArticles extends JPanel {
             }
         });
 
+        upperHalf.setFormListener(new FormListener(){
+            public void formEventOcurred(FormEvent e){
+                String article = e.getArticle();
+                String word = e.getWord();
+
+                lowerHalf.generateResult(word, article);
+            }
+        });
+
         /**
          * this function make a joint between lowerHalf and UpperHalf class
          * we can use an interface like StringListener too

@@ -4,6 +4,8 @@ import DataBase.GenerateWords;
 import DataBase.WordsData;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,12 +14,12 @@ import java.util.List;
 
 public class UpperHalf extends JPanel {
     private JComboBox comboBoxArticles = new JComboBox();
-    private Label textWord = new Label();
+    private JTextField textWord = new JTextField();
     private String article;
     private String word;
     private LowerHalf lowerHalf;
 
-
+    private FormListener formListener;
 
     List<WordsData> wordsDataList = new ArrayList<WordsData>();
     GenerateWords generateWords = new GenerateWords();
@@ -32,7 +34,9 @@ public class UpperHalf extends JPanel {
         comboBoxArticles.setBackground(Color.WHITE);
         textWord.setPreferredSize(new Dimension(100, 50));
         textWord.setBackground(Color.WHITE);
-        textWord.setAlignment(Label.CENTER);
+        textWord.setEditable(false);
+        textWord.setOpaque(true);
+        textWord.setBorder(null);
         //textWord.setText(text);
         setLayout(new FlowLayout());
         Dimension dimension = getPreferredSize();
@@ -40,7 +44,6 @@ public class UpperHalf extends JPanel {
         setPreferredSize(dimension);
         add(comboBoxArticles);
         add(textWord);
-
 
         //take the image, resize and put in the label
         JLabel imageLabel = new JLabel();
@@ -64,7 +67,6 @@ public class UpperHalf extends JPanel {
 
     /**
      * this function changes the word in the label
-     * @param text
      */
     public void appendText(WordsData wordsData){
         textWord.setText(wordsData.getWord());
@@ -85,5 +87,37 @@ public class UpperHalf extends JPanel {
     public String getArticle(){
         return comboBoxArticles.getSelectedItem().toString();
     }
+
+    public void setArticleWord(){
+        String article = getArticle();
+        String word = getWord();
+
+        textWord.getDocument().addDocumentListener(new DocumentListener() {
+
+            public void removeUpdate(DocumentEvent e) {
+                System.out.println("removeUpdate");
+            }
+
+            public void insertUpdate(DocumentEvent e) {
+                FromDocumentListener fromDocumentListener = new FromDocumentListener(
+                        new WordsData(word, article));
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                System.out.println("changedUpdate");
+            }
+        });
+
+        FormEvent event = new FormEvent(this, article, word);
+
+        if(formListener != null){
+            formListener.formEventOcurred(event);
+        }
+    }
+
+    public void setFormListener(FormListener listener){
+        this.formListener = listener;
+    }
+
 
 }
