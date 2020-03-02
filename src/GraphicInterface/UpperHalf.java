@@ -3,19 +3,26 @@ package GraphicInterface;
 import DataBase.GenerateWords;
 import DataBase.WordsData;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpperHalf extends JPanel {
+public class UpperHalf extends JPanel implements ActionListener {
     private JComboBox comboBoxArticles = new JComboBox();
     private Label textWord = new Label();
+    private JLabel imageLabel;
     private String article;
     private String word;
     private LowerHalf lowerHalf;
+    private JButton buttonShow = new JButton();
 
 
 
@@ -30,41 +37,83 @@ public class UpperHalf extends JPanel {
         comboBoxArticles.addItem("Die");
         comboBoxArticles.addItem("Das");
         comboBoxArticles.setBackground(Color.WHITE);
+
+        //set up textWord
         textWord.setPreferredSize(new Dimension(100, 50));
         textWord.setBackground(Color.WHITE);
         textWord.setAlignment(Label.CENTER);
-        //textWord.setText(text);
-        setLayout(new FlowLayout());
+
+        //set up imageLabel
+        imageLabel = new JLabel(getImage(getWord(), 150, 200));
+        imageLabel.setPreferredSize(new Dimension(150, 100));
+        imageLabel.setBackground(Color.WHITE);
+
+        //set buttonShow
+        buttonShow.setPreferredSize(new Dimension(20,15));
+        buttonShow.setIcon(getImage("icon_visible", 20, 15));
+        buttonShow.addActionListener(this);
+
+        setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
         Dimension dimension = getPreferredSize();
-        dimension.height = 400;
+        dimension.height = 300;
         setPreferredSize(dimension);
-        add(comboBoxArticles);
-        add(textWord);
+
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.anchor = GridBagConstraints.LINE_END;
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.weightx = 1;
+        constraints.weighty = 1;
+        constraints.insets = new Insets(5,0,0,5);
+        add(comboBoxArticles, constraints);
 
 
-        //take the image, resize and put in the label
-        JLabel imageLabel = new JLabel();
-       /* BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File("C:/Users/Usuario/IdeaProjects/Learn German/images/engel.jpg"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Image dimg = img.getScaledInstance(150, 200,
-                Image.SCALE_SMOOTH);
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.anchor = GridBagConstraints.LINE_START;
+        constraints.weightx = 0.5;
+        constraints.gridx = 1;
+        constraints.gridy = 0;
+        constraints.weightx = 1;
+        constraints.weighty = 1;
+        constraints.insets = new Insets(5,5,0,0);
+        add(textWord, constraints);
 
-        ImageIcon imageIcon = new ImageIcon(dimg);
-        imageIcon.getImage();
-        imageLabel.setIcon(imageIcon);*/
-        //put the label in the bottom panel
-        //bottomPanel.setLayout(new FlowLayout());
-        //bottomPanel.add(imageLabel);
+
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.anchor = GridBagConstraints.NORTH;
+        constraints.ipady = 120;      //make this component tall
+        constraints.ipadx = 100;
+        constraints.gridwidth = 0;
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        add(imageLabel, constraints);
+
+        constraints.fill = GridBagConstraints.NONE;
+        constraints.anchor = GridBagConstraints.NORTH;
+        constraints.gridwidth = 0;
+        constraints.ipady = 5;      //make this component tall
+        constraints.ipadx = 5;
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.insets = new Insets(2,130,70,0);
+        add(buttonShow, constraints);
+
+
 
     }
 
     /**
+    * Insert the image of the word in the label
+    */
+    @Override
+    public void actionPerformed(ActionEvent event){
+        this.imageLabel.setIcon(getImage(getWord(),150,200));
+    }
+
+
+    /**
      * this function changes the word in the label
-     * @param text
      */
     public void appendText(WordsData wordsData){
         textWord.setText(wordsData.getWord());
@@ -85,5 +134,34 @@ public class UpperHalf extends JPanel {
     public String getArticle(){
         return comboBoxArticles.getSelectedItem().toString();
     }
+
+
+    private String path(String file) {
+        String path = "C:/Users/Usuario/Desktop/images/" + file + ".jpg";
+        File tmpDir = new File(path);
+        if (tmpDir.exists())
+            return path;
+        else
+            return "C:/Users/Usuario/Desktop/images/not_found.jpg";
+
+    }
+
+    private ImageIcon getImage(String path, int width, int height){
+        //take the image, resize and put in the label
+        BufferedImage img = null;
+
+        try {
+            img = ImageIO.read(new File(path(path)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image dimg = img.getScaledInstance(width, height,
+                Image.SCALE_SMOOTH);
+
+        ImageIcon imageIcon = new ImageIcon(dimg);
+        imageIcon.getImage();
+        return imageIcon;
+    }
+
 
 }

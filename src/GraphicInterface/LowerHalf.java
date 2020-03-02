@@ -60,9 +60,7 @@ public class LowerHalf extends JPanel implements ActionListener{
        Dimension dimension = getPreferredSize();
        dimension.height = 50;
        setPreferredSize(dimension);
-       Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
-       Border innerBorder = BorderFactory.createTitledBorder("");
-       setBorder(BorderFactory.createCompoundBorder(innerBorder, outerBorder));
+       setBorder(BorderFactory.createEmptyBorder(0, 10, 20, 10));
        add(buttonStart);
        add(buttonPrev);
        add(buttonNext);
