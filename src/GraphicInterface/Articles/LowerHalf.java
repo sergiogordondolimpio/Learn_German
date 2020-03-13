@@ -1,11 +1,10 @@
-package GraphicInterface;
+package GraphicInterface.Articles;
 
 import DataBase.GenerateWords;
 import DataBase.ManageFile;
 import DataBase.WordsData;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +19,6 @@ public class LowerHalf extends JPanel implements ActionListener{
     private JButton buttonPrev = new JButton();
     private JButton buttonFinish = new JButton();
     WordsData wordsDataShow = (new WordsData(null, null));
-    ManageFile manageFile = new ManageFile();
 
     private StringListener stringListener;
     //we don't need upperhalf anymore because we use the StringListener interface
@@ -138,7 +136,7 @@ public class LowerHalf extends JPanel implements ActionListener{
      */
     private void wordsDataListResultShuffle() {
         //wordsDataList = generateWords.getWordsDataList();
-        wordsDataList = manageFile.readCsv();
+        wordsDataList = ManageFile.readCsv("C:\\Users\\Usuario\\Desktop\\users.csv");
         Collections.shuffle(wordsDataList);
         for (int x = 0; x < wordsDataList.size(); x++){
             wordsDataListResult.add(x, new WordsData(wordsDataList.get(x).getWord(), "Der"));

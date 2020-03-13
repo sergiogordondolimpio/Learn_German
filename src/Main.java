@@ -1,9 +1,16 @@
-import GraphicInterface.Menu;
+import GraphicInterface.MainFrame;
+
+import javax.swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        menu.showMenu();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new MainFrame();
+
+            }
+        });
     }
 }

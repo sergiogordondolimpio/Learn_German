@@ -4,27 +4,26 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ManageFile {
-    private String filePath = "C:\\user.csv";
+public interface ManageFile {
 
-    public static void writeCsv(String filePath, List<WordsData> wordsDataList){
+    public static void writeCsv(String filePath, List<WordsData> wordsDataList) {
         FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(filePath);
             for (WordsData wordsData : wordsDataList) {
                 fileWriter.append(wordsData.getArticles()
-                                + ',' +
-                                wordsData.getWord()
-                                + '\n');
+                        + ',' +
+                        wordsData.getWord()
+                        + '\n');
             }
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
-        }finally {
+        } finally {
             {
                 try {
                     fileWriter.flush();
                     fileWriter.close();
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -33,17 +32,18 @@ public class ManageFile {
 
     /**
      * this function read a .csv file and make the list of the words
+     *
      * @return wordDataList, a list of WordsData
      */
-    public List<WordsData> readCsv(){
-        String filePath = "C:\\Users\\Usuario\\Desktop\\users.csv";
+    public static List<WordsData> readCsv(String filePath) {
+
         BufferedReader reader = null;
         List<WordsData> wordsDataList = new ArrayList<WordsData>();
-        try{
+        try {
             String line = "";
             reader = new BufferedReader(new FileReader(filePath));
             reader.readLine();
-            while ((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
 
                 if (fields.length > 0) {
@@ -61,10 +61,41 @@ public class ManageFile {
             try {
                 reader.close();
 
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+        }
         return wordsDataList;
+    }
+
+    /**
+     * this function read a .csv file and make the list of the words
+     *
+     * @return wordDataList, a list of WordsData
+     */
+    public static List<String> readPrepositionCsv(String filePath) {
+
+        BufferedReader reader = null;
+        List<String> List = new ArrayList<>();
+        try {
+            String line = "";
+            reader = new BufferedReader(new FileReader(filePath));
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+                List.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                reader.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return List;
     }
 }

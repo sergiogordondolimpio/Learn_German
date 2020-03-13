@@ -1,5 +1,8 @@
 package GraphicInterface;
 
+import GraphicInterface.Articles.PanelArticles;
+import GraphicInterface.Praposition.PrepositionPanel;
+
 import javax.swing.*;
 
 /**
@@ -8,8 +11,10 @@ import javax.swing.*;
  */
 public class MainPanel extends JTabbedPane {
     PanelArticles panelArticles = new PanelArticles();
+    PrepositionPanel prepositionPanel = new PrepositionPanel();
 
     public MainPanel(){
         add("Die Artikel",panelArticles);
+        add("Die Präposition", prepositionPanel);
     }
 }

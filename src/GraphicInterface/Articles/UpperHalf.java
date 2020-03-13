@@ -1,17 +1,13 @@
-package GraphicInterface;
+package GraphicInterface.Articles;
 
 import DataBase.GenerateWords;
 import DataBase.WordsData;
+import Utilities.Utilities;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,13 +40,13 @@ public class UpperHalf extends JPanel implements ActionListener {
         textWord.setAlignment(Label.CENTER);
 
         //set up imageLabel
-        imageLabel = new JLabel(getImage(getWord(), 150, 200));
+        imageLabel = new JLabel(Utilities.getImage(getWord(), 150, 200));
         imageLabel.setPreferredSize(new Dimension(150, 100));
         imageLabel.setBackground(Color.WHITE);
 
         //set buttonShow
         buttonShow.setPreferredSize(new Dimension(20,15));
-        buttonShow.setIcon(getImage("icon_visible", 20, 15));
+        buttonShow.setIcon(Utilities.getImage("icon_visible", 20, 15));
         buttonShow.addActionListener(this);
 
         setLayout(new GridBagLayout());
@@ -108,7 +104,7 @@ public class UpperHalf extends JPanel implements ActionListener {
     */
     @Override
     public void actionPerformed(ActionEvent event){
-        this.imageLabel.setIcon(getImage(getWord(),150,200));
+        this.imageLabel.setIcon(Utilities.getImage(getWord(),150,200));
     }
 
 
@@ -136,32 +132,8 @@ public class UpperHalf extends JPanel implements ActionListener {
     }
 
 
-    private String path(String file) {
-        String path = "C:/Users/Usuario/Desktop/images/" + file + ".jpg";
-        File tmpDir = new File(path);
-        if (tmpDir.exists())
-            return path;
-        else
-            return "C:/Users/Usuario/Desktop/images/not_found.jpg";
 
-    }
 
-    private ImageIcon getImage(String path, int width, int height){
-        //take the image, resize and put in the label
-        BufferedImage img = null;
-
-        try {
-            img = ImageIO.read(new File(path(path)));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Image dimg = img.getScaledInstance(width, height,
-                Image.SCALE_SMOOTH);
-
-        ImageIcon imageIcon = new ImageIcon(dimg);
-        imageIcon.getImage();
-        return imageIcon;
-    }
 
 
 }

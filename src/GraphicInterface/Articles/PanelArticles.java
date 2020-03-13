@@ -1,9 +1,8 @@
-package GraphicInterface;
+package GraphicInterface.Articles;
 
 import DataBase.WordsData;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class PanelArticles extends JPanel {
     UpperHalf upperHalf;

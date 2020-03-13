@@ -1,4 +1,4 @@
-package GraphicInterface;
+package GraphicInterface.Articles;
 
 import DataBase.WordsData;
 
