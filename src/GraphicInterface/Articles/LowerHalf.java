@@ -99,7 +99,6 @@ public class LowerHalf extends JPanel implements ActionListener{
             if ((i - 1) % 10 == 0 ){buttonPrev.setVisible(true);}
             //upperHalf.appendText(showText());
             stringListener.textEmitted(showText());
-            //System.out.println(upperHalf.getWord());
         }else if (clicked == buttonPrev){
             generateResult();
             i--;
@@ -125,8 +124,6 @@ public class LowerHalf extends JPanel implements ActionListener{
             buttonNext.setVisible(false);
             generateResult();
             JOptionPane.showMessageDialog(LowerHalf.this, new TextArea(showResult()), "Das Resultat", 1);
-
-
         }
     }
 
@@ -150,8 +147,7 @@ public class LowerHalf extends JPanel implements ActionListener{
      */
     private void generateResult() {
         wordsDataListResult.set(i, new WordsData(upperHalf.getWord(),upperHalf.getArticle()));
-        System.out.println("generateResult " + i + wordsDataListResult.get(i).getArticles() + wordsDataListResult.get(i).getWord());
-    }
+           }
 
     /**
      * show the result in a label when click the button finish
@@ -169,17 +165,12 @@ public class LowerHalf extends JPanel implements ActionListener{
             l = i;
             while (l % 10 != 0){
                 l--;
-                System.out.println(l);
             }
             for (int k = l; k <= j; k++){
                 if (wordsDataList.get(k).getArticles().equals(wordsDataListResult.get(k).getArticles())){
-                    System.out.println("Es igual: " + wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord());
-                    result += wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord() + "\n";
+                     result += wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord() + "\n";
                     countGood++;
                 }else{
-                    System.out.println("Es distinto: " + wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord()
-                            + "\n" + wordsDataList.get(k).getArticles() + " " + wordsDataList.get(k).getWord());
-
                     result += wordsDataListResult.get(k).getArticles() + " " + wordsDataListResult.get(k).getWord();
                     if(wordsDataListResult.get(k).getWord().length() < 9)
                         result += "\t\t\t||\t" ;

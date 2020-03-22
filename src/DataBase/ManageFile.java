@@ -73,7 +73,7 @@ public interface ManageFile {
      *
      * @return wordDataList, a list of WordsData
      */
-    public static List<String> readPrepositionCsv(String filePath) {
+    public static List<String> readSentencesCsv(String filePath) {
 
         BufferedReader reader = null;
         List<String> List = new ArrayList<>();
@@ -98,4 +98,6 @@ public interface ManageFile {
         }
         return List;
     }
+    
+    
 }

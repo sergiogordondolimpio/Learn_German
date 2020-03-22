@@ -1,6 +1,7 @@
 package GraphicInterface;
 
 import GraphicInterface.Articles.PanelArticles;
+import GraphicInterface.OrderSentences.OrderSentences;
 import GraphicInterface.Praposition.PrepositionPanel;
 
 import javax.swing.*;
@@ -12,9 +13,11 @@ import javax.swing.*;
 public class MainPanel extends JTabbedPane {
     PanelArticles panelArticles = new PanelArticles();
     PrepositionPanel prepositionPanel = new PrepositionPanel();
+    OrderSentences orderSentences = new OrderSentences();
 
     public MainPanel(){
         add("Die Artikel",panelArticles);
         add("Die Präposition", prepositionPanel);
+        add("Satz bestellen", orderSentences);
     }
 }

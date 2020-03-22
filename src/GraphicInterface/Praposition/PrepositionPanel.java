@@ -19,6 +19,7 @@ public class PrepositionPanel extends JPanel implements ActionListener, MouseLis
 
     //Component of panelInformation
     private JButton buttonArticles = new JButton();
+    private JButton buttonPrepositions = new JButton();
     private JLabel labelImageInformation = new JLabel();
     private JLabel labelWord = new JLabel();
 
@@ -56,7 +57,7 @@ public class PrepositionPanel extends JPanel implements ActionListener, MouseLis
      * and a flow layout.
      */
     public PrepositionPanel() {
-        sentencesCorrect = ManageFile.readPrepositionCsv("C:\\Users\\Usuario\\Desktop\\usersPrepositions.csv");
+        sentencesCorrect = ManageFile.readSentencesCsv("C:\\Users\\Usuario\\Desktop\\usersPrepositions.csv");
         wordsDataList = ManageFile.readCsv("C:\\Users\\Usuario\\Desktop\\users.csv");
         Collections.shuffle(sentencesCorrect);
 
@@ -74,6 +75,10 @@ public class PrepositionPanel extends JPanel implements ActionListener, MouseLis
         buttonArticles.setPreferredSize(new Dimension(80,30));
         buttonArticles.addActionListener(this);
 
+        buttonPrepositions.setText("Präpositionen");
+        buttonPrepositions.setPreferredSize(new Dimension(80,30));
+        buttonPrepositions.addActionListener(this);
+
         labelWord.setPreferredSize(new Dimension(80,30));
         labelWord.setOpaque(true);
         labelWord.setBackground(Color.white);
@@ -88,14 +93,19 @@ public class PrepositionPanel extends JPanel implements ActionListener, MouseLis
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH, insets, 0, 0);
         panelInformation.add(buttonArticles, gbc);
 
+        insets.set(10,20,10,20);
+       gbc = new GridBagConstraints(0, 1, 1, 1, 0.1, 0.1,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH, insets, 0, 0);
+        panelInformation.add(buttonPrepositions, gbc);
+
         insets.set(10,20,100,20);
-        gbc = new GridBagConstraints(0, 1, 1, 1, 0.1, 0.1,
+        gbc = new GridBagConstraints(0, 2, 1, 1, 0.1, 0.1,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH, insets, 0, 0);
         panelInformation.add(labelWord, gbc);
 
 
         insets.set(30,20,30,20);
-        gbc = new GridBagConstraints(1, 0, 1, 2, 0.2, 0.2,
+        gbc = new GridBagConstraints(1, 0, 1, 3, 0.5, 0.2,
               GridBagConstraints.CENTER, GridBagConstraints.BOTH, insets, 0, 0);
         panelInformation.add(labelImageInformation, gbc);
 
@@ -155,24 +165,30 @@ public class PrepositionPanel extends JPanel implements ActionListener, MouseLis
             //obtain an array with every word of the sentence
             wordsOfSentence = sentencesCorrect.get(countOfSentences).split(" ");
             sentenceCorrect = sentencesCorrect.get(countOfSentences);
-            countOfSentences++;
+            if (countOfSentences == wordsOfSentence.length)
+                countOfSentences = 0;
+            else
+                countOfSentences++;
 
             //for of the textfield creation of words
             for (int i = 0; i < 10; i++) {
                 if (i < wordsOfSentence.length) {
                     jTextFields[i].setVisible(true);
                     customizeTextFields(i, wordsOfSentence[i]);
-
                     this.revalidate();
                     this.repaint();
                 }else{
                     jTextFields[i].setVisible(false);
                 }
             }
+        }else if (clicked == buttonPrepositions) {
+                labelImageInformation.setIcon(Utilities.getImage(
+                        "präpositionen",labelImageInformation.getWidth(), labelImageInformation.getHeight()));
         }else{
-            labelImageInformation.setIcon(Utilities.getImage("artikle",labelImageInformation.getWidth(), labelImageInformation.getHeight()));
+                labelImageInformation.setIcon(Utilities.getImage(
+                        "artikle",labelImageInformation.getWidth(), labelImageInformation.getHeight()));
+            }
         }
-    }
 
     /**
      * Set the size, alignment and editable of the array of jtextfiel.
