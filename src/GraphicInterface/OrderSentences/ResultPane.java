@@ -7,9 +7,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ResultPane extends JPanel implements ActionListener{
-    //RadioButtonPane radioButtonPane = new RadioButtonPane();
+    RadioButtonPane radioButtonPane = new RadioButtonPane();
     UtilOrderSentences utilOrderSentences = new UtilOrderSentences();
     TextFieldPane textFieldPane = new TextFieldPane();
     JButton buttonResult = new JButton("Ok");
@@ -39,17 +42,21 @@ public class ResultPane extends JPanel implements ActionListener{
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton clicked = (JButton) e.getSource();
-        if (clicked == buttonResult){
-            System.out.println("textfield"+textFieldPane.getSentence());
+        if (e.getSource() == buttonResult){
+            System.out.println("textfield: "+textFieldPane.getSentence());
             System.out.println(utilOrderSentences.getSentence());
             if (textFieldPane.getSentence().equals(utilOrderSentences.getSentence())){
-                setIconResult(Utilities.getImage("ok",50,50), "");
+                setIconResult(Utilities.getImage("ok",50,50), utilOrderSentences.getSentence());
             }else{
                 setIconResult(Utilities.getImage("wrong",50,50), utilOrderSentences.getSentence());
             }
         }else{
-
+            List<String> words = new ArrayList<>();
+            words = utilOrderSentences.getWords();
+            Collections.shuffle(words);
+            radioButtonPane.addTextJRadioButtons(words);
+            textFieldPane.addJTextTextFields(words);
+            System.out.println(words);
         }
     }
 
@@ -60,6 +67,10 @@ public class ResultPane extends JPanel implements ActionListener{
 
     public void setTextFieldPane(TextFieldPane textFieldPane){
         this.textFieldPane = textFieldPane;
+    }
+
+    public void setRadioButtonPane(RadioButtonPane radioButtonPane){
+        this.radioButtonPane = radioButtonPane;
     }
 }
 

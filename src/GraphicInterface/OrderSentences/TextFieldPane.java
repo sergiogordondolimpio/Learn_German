@@ -32,7 +32,7 @@ public class TextFieldPane extends JPanel {
 
         setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
         addTextFields();
-        addJTextTextFields();
+        //addJTextTextFields();
     }
 
     private void addTextFields(){
@@ -48,9 +48,9 @@ public class TextFieldPane extends JPanel {
      * textFields is click, in this case set the text to the textField, this
      * text is get for the text of the radioButton selected
      */
-    private void addJTextTextFields() {
-        List<String> words = utilOrderSentences.getWords();
+    public void addJTextTextFields(List<String> words) {
         for (int i = 0; i < words.size(); i++) {
+            textFields[i].setText("");
             textFields[i].setVisible(true);
             textFields[i].setColumns(10);
             textFields[i].setHorizontalAlignment(JTextField.CENTER);
@@ -64,7 +64,9 @@ public class TextFieldPane extends JPanel {
                  */
                 @Override
                 public void mouseClicked(MouseEvent e) {
+                        setRadioButtonPane(radioButtonPane);
                         textFields[finalI].setText(radioButtonPane.getWord());
+                        System.out.println(radioButtonPane.getWord());
                 }
             });
         }

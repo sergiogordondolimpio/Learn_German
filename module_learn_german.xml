@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_learn_german" default="compile.module.learn_german">
+  <dirname property="module.learn_german.basedir" file="${ant.file.module_learn_german}"/>
+  
+  <property name="module.jdk.home.learn_german" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.learn_german" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.learn_german" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.learn_german" value="-encoding UTF-8 -source 13 -target 13 ${compiler.args}"/>
+  
+  <property name="learn_german.output.dir" value="${module.learn_german.basedir}/out/production/Learn German"/>
+  <property name="learn_german.testoutput.dir" value="${module.learn_german.basedir}/out/test/Learn German"/>
+  
+  <path id="learn_german.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="learn_german.module.production.classpath">
+    <path refid="${module.jdk.classpath.learn_german}"/>
+  </path>
+  
+  <path id="learn_german.runtime.production.module.classpath">
+    <pathelement location="${learn_german.output.dir}"/>
+  </path>
+  
+  <path id="learn_german.module.classpath">
+    <path refid="${module.jdk.classpath.learn_german}"/>
+    <pathelement location="${learn_german.output.dir}"/>
+  </path>
+  
+  <path id="learn_german.runtime.module.classpath">
+    <pathelement location="${learn_german.testoutput.dir}"/>
+    <pathelement location="${learn_german.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.learn_german">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.learn_german">
+    <patternset refid="excluded.from.module.learn_german"/>
+  </patternset>
+  
+  <path id="learn_german.module.sourcepath">
+    <dirset dir="${module.learn_german.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.learn_german" depends="compile.module.learn_german.production,compile.module.learn_german.tests" description="Compile module Learn German"/>
+  
+  <target name="compile.module.learn_german.production" depends="register.custom.compilers" description="Compile module Learn German; production classes">
+    <mkdir dir="${learn_german.output.dir}"/>
+    <javac2 destdir="${learn_german.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.learn_german}/javac">
+      <compilerarg line="${compiler.args.learn_german}"/>
+      <bootclasspath refid="learn_german.module.bootclasspath"/>
+      <classpath refid="learn_german.module.production.classpath"/>
+      <src refid="learn_german.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.learn_german"/>
+    </javac2>
+    
+    <copy todir="${learn_german.output.dir}">
+      <fileset dir="${module.learn_german.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.learn_german.tests" depends="register.custom.compilers,compile.module.learn_german.production" description="compile module Learn German; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.learn_german" description="cleanup module">
+    <delete dir="${learn_german.output.dir}"/>
+    <delete dir="${learn_german.testoutput.dir}"/>
+  </target>
+</project>

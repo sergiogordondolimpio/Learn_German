@@ -7,22 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c64989e-b917-4ea8-92a5-64aaa0412d27" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/ButtonPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/OrderSentences.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/RadioButtonPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/ResultPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/TextFieldPane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utilities/UtilOrderSentences.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Learn_German_jar/Learn German.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Learn_German_jar/Learn German.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Learn German/DataBase/ManageFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/DataBase/ManageFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/Articles/LowerHalf.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/Articles/LowerHalf.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/MainPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/MainPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/Praposition/PrepositionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/Praposition/PrepositionPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataBase/ManageFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/ManageFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphicInterface/Articles/LowerHalf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicInterface/Articles/LowerHalf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphicInterface/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicInterface/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphicInterface/Praposition/PrepositionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicInterface/Praposition/PrepositionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/OrderSentences/OrderSentences.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/OrderSentences/OrderSentences.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/OrderSentences/RadioButtonPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/OrderSentences/RadioButtonPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/OrderSentences/ResultPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/OrderSentences/ResultPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/OrderSentences/TextFieldPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/OrderSentences/TextFieldPane$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/OrderSentences/TextFieldPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/GraphicInterface/OrderSentences/TextFieldPane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Learn German/Utilities/UtilOrderSentences.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Learn German/Utilities/UtilOrderSentences.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/OrderSentences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/OrderSentences.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/RadioButtonPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/RadioButtonPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/ResultPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/ResultPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/TextFieldPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicInterface/OrderSentences/TextFieldPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilities/UtilOrderSentences.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities/UtilOrderSentences.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +46,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="learn_german" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -106,38 +108,55 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="537" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1584830305240" />
-    <state x="494" y="126" key="FileChooserDialogImpl" timestamp="1583624938245">
+    <state x="494" y="126" key="FileChooserDialogImpl" timestamp="1585347559061">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="494" y="126" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1583624938245" />
-    <state width="1243" height="187" key="GridCell.Tab.0.bottom" timestamp="1584835496747">
+    <state x="494" y="126" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585347559061" />
+    <state width="1243" height="223" key="GridCell.Tab.0.bottom" timestamp="1586387564382">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1145" height="149" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584061305870" />
-    <state width="1243" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584835496747" />
-    <state width="1243" height="187" key="GridCell.Tab.0.center" timestamp="1584835496747">
+    <state width="1243" height="223" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586387564382" />
+    <state width="1243" height="223" key="GridCell.Tab.0.center" timestamp="1586387564367">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1145" height="149" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584061305870" />
-    <state width="1243" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584835496747" />
-    <state width="1243" height="187" key="GridCell.Tab.0.left" timestamp="1584835496747">
+    <state width="1243" height="223" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586387564367" />
+    <state width="1243" height="223" key="GridCell.Tab.0.left" timestamp="1586387564367">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1145" height="149" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584061305855" />
-    <state width="1243" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584835496747" />
-    <state width="1243" height="187" key="GridCell.Tab.0.right" timestamp="1584835496747">
+    <state width="1243" height="223" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586387564367" />
+    <state width="1243" height="223" key="GridCell.Tab.0.right" timestamp="1586387564382">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1145" height="149" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584061305870" />
-    <state width="1243" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584835496747" />
+    <state width="1243" height="223" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586387564382" />
+    <state width="1243" height="223" key="GridCell.Tab.1.bottom" timestamp="1586387564382">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1243" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586387564382" />
+    <state width="1243" height="223" key="GridCell.Tab.1.center" timestamp="1586387564382">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1243" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586387564382" />
+    <state width="1243" height="223" key="GridCell.Tab.1.left" timestamp="1586387564382">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1243" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586387564382" />
+    <state width="1243" height="223" key="GridCell.Tab.1.right" timestamp="1586387564382">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1243" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586387564382" />
     <state x="326" y="20" width="1040" height="708" key="SettingsEditor" timestamp="1583181814210">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="326" y="20" width="1040" height="708" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583181814210" />
-    <state x="410" y="195" key="com.intellij.ide.util.TipDialog" timestamp="1584828465076">
+    <state x="410" y="195" key="com.intellij.ide.util.TipDialog" timestamp="1585347532762">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="410" y="195" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1584828465076" />
+    <state x="384" y="182" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584914113084" />
+    <state x="410" y="195" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585347532762" />
     <state x="393" y="270" key="run.anything.popup" timestamp="1582903785836">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

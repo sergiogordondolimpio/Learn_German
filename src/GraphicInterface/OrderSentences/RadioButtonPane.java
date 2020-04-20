@@ -25,15 +25,13 @@ public class RadioButtonPane extends JPanel {
             radioButton6, radioButton7, radioButton8, radioButton9, radioButton10
     };
 
-    private List<String> words = new ArrayList<>();
-
     public RadioButtonPane(){
-        words = utilOrderSentences.getWords();
-        Collections.shuffle(words);
+        //words = utilOrderSentences.getWords();
+        //Collections.shuffle(words);
 
         setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
         addJRadioButtons();
-        addTextJRadioButtons(words);
+        //addTextJRadioButtons(words);
 
     }
 
@@ -42,7 +40,7 @@ public class RadioButtonPane extends JPanel {
      * and set selected the first radiobutton
      * @param words
      */
-    private void addTextJRadioButtons(List<String> words){
+    public void addTextJRadioButtons(List<String> words){
         radioButton1.setSelected(true);
         for (int i=0; i < words.size(); i++){
             radioButtons[i].setText(words.get(i));
@@ -70,7 +68,7 @@ public class RadioButtonPane extends JPanel {
      */
     public String getWord(){
         String word = "";
-        for (int i=0; i < words.size(); i++) {
+        for (int i=0; i < 10; i++) {
             if (radioButtons[i].isSelected()){
                 word = radioButtons[i].getText();
             }

@@ -21,6 +21,7 @@ public class OrderSentences extends JPanel {
 
         textfieldPane.setRadioButtonPane(radioButtonPane);
         resultPane.setTextFieldPane(textfieldPane);
+        resultPane.setRadioButtonPane(radioButtonPane);
     }
 
 
